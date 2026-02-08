@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestoria Pujols - Vic, Osona | Serveis Fiscals i Administratius</title>
+    <meta name="description" content="Gestoria Pujols, Vic/Osona. Serveis fiscals, laborals, declaració de la renda, matriculació de vehicles. Horari: Dilluns a Divendres 9-13h y 15-19h">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #ecf0f1;
+        }
+
+        .logo p {
+            font-size: 1rem;
+            color: #bdc3c7;
+            margin-top: 5px;
+        }
+
+        .contact-info {
+            text-align: right;
+        }
+
+        .contact-info p {
+            margin: 5px 0;
+            font-size: 0.95rem;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: #34495e;
+            padding: 15px 0;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        nav ul li a:hover {
+            background-color: #2c3e50;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(52, 73, 94, 0.8), rgba(44, 62, 80, 0.8)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23e3f2fd" width="1200" height="600"/><path fill="%23bbdefb" d="M0 300L50 325C100 350 200 400 300 425C400 450 500 450 600 425C700 400 800 350 900 325C1000 300 1100 300 1150 300L1200 300V600H1150C1100 600 1000 600 900 600C800 600 700 600 600 600C500 600 400 600 300 600C200 600 100 600 50 600H0V300Z"/></svg>');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #e74c3c;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+        }
+
+        .cta-button:hover {
+            background-color: #c0392b;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 80px 0;
+            background-color: white;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: #2c3e50;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #3498db;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        .service-card p {
+            color: #7f8c8d;
+            line-height: 1.6;
+        }
+
+        /* About Section */
+        .about {
+            padding: 80px 0;
+            background-color: #ecf0f1;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            color: #7f8c8d;
+            font-size: 1.1rem;
+        }
+
+        .location-info {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .location-info h3 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .info-item {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .info-item strong {
+            min-width: 80px;
+            color: #34495e;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .contact-item {
+            padding: 20px;
+        }
+
+        .contact-item h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: #ecf0f1;
+        }
+
+        .contact-item p {
+            margin: 10px 0;
+            color: #bdc3c7;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a252f;
+            color: #bdc3c7;
+            text-align: center;
+            padding: 30px 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .contact-info {
+                text-align: center;
+                margin-top: 20px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav ul li {
+                margin: 5px 0;
+            }
+
+            .hero h2 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        .colegi-logo {
+    margin-top: 12px;
+}
+
+}
+
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1>Gestoria Pujols</h1>
+                    <p>Vic, Osona - Catalunya</p>
+                </div>
+                <div class="contact-info">
+                    <p><strong>📞 Telèfon de Contacte:</strong> 938 850 070</p>
+                    <p><strong>🕒 Horari:</strong> Dill - Div: 9:00-13:00 y 15:00-19:00</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#inici">Inici</a></li>
+                <li><a href="#serveis">Serveis</a></li>
+                <li><a href="#nosaltres">Qui som?</a></li>
+                <li><a href="#contacte">Contacte</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inici">
+        <div class="container">
+            <h2>La teva gestoria de confiança a Vic</h2>
+            <p>Més de 15 anys d'experiència oferint serveis professionals de gestió administrativa, fiscal i laboral</p>
+            <a href="#contacto" class="cta-button">Sol·licita Informació</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="serveis">
+        <div class="container">
+            <h2 class="section-title">Els nostres serveis</h2>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">📊</div>
+                    <h3>Serveis Fiscals</h3>
+                    <p>Assesorment fiscal integral, planificació tributària, y optimització de carregues fiscals per particulars y empreses.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">💼</div>
+                    <h3>Gestió Empresarial</h3>
+                    <p>Constitució de societats, gestió comptable, llibres oficials, i assesorament en gestió empresarial.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">👥</div>
+                    <h3>Gestió Laboral</h3>
+                    <p>Altes i baixes de treballadors, nòmines, contractes laborales i gestió de la seguretat social.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">📋</div>
+                    <h3>Declaració de la Renda</h3>
+                    <p>Preparació i presentació de declaracions de IRPF, optimització de deduccions i devolucions.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🚗</div>
+                    <h3>Matriculació de vehicles</h3>
+                    <p>Gestió completa de matriculacions, transferències, baixes temporals i  definitives de vehicles.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">📝</div>
+                    <h3>Canvis de Nom</h3>
+                    <p>Tramitació de canvis de titularitat de vehicles, transferències i modificacions de dades.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="nosaltres">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Sobre Gestoria Pujols</h2>
+                    <p>Som una gestoria amb àmplia experiència a Vic, situada al cor de la comarca d´Osona, a Catalunya. Som especialistes en oferir serveis integrals de gestió administrativa, fiscal i laboral.</p>
+                    <p>El nostre equip de professionals qualificats es dedica a proporcionar un servei personalitzat i eficient, adaptant-se a les necessitats específiques de cada client, ja sigui particular o empresa.</p>
+                    <p>La confiança dels nostres clients és el nostre valor més gran, i treballem cada dia per mantenir els més alts estàndards de qualitat en tots els nostres serveis.</p>
+                </div>
+                <div class="location-info">
+                    <h3>Informació de Contacte</h3>
+                    <div class="info-item">
+                        <strong>📍 Direcció:</strong>
+                        <span> Ctra. de la Guixa Vic / Osona</span>
+                    </div>
+                    <div class="info-item">
+                        <strong>🕒 Horari:</strong>
+                        <span>Dilluns a divendres</span>
+                    </div>
+                    <div class="info-item">
+                        <strong>🌅 Matins:</strong>
+                        <span>9:00 - 13:00</span>
+                    </div>
+                    <div class="info-item">
+                        <strong>🌇 Tardes:</strong>
+                        <span>15:00 - 19:00</span>
+                    </div>
+                    <div class="info-item">
+                        <strong>📞 Telèfon de contacte:</strong>
+                        <span>938 850 070</span>
+                    </div>
+                    <div class="info-item">
+                        <strong>✉️ Email:</strong>
+                        <span>**info@gestoriapujols.com**</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contacto">
+        <div class="container">
+            <h2>Contacta amb nosaltres</h2>
+            <p>Necesites assessorament professional? Estem aquí per ajudar-te</p>
+            
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <h3>📞 Telèfon </h3>
+                    <p>938 850 070</p>
+                    <p>Trucades ateses en horari d'oficina</p>
+                </div>
+                
+                <div class="contact-item">
+                    <h3>✉️ E-mail</h3>
+                    <p>**info@gestoriapujols.com**</p>
+                    <p>Resposta ràpida en menys de 24 hores</p>
+                </div>
+                
+                <div class="contact-item">
+                    <h3>📍 On SOM</h3>
+                    <p>Crta./de la guixa 10 / Vic</p>
+                    <p>Osona, Catalunya</p>
+                </div>
+                
+                <div class="contact-item">
+                    <h3>🕒 Horaris</h3>
+                    <p>Dilluns a Divendres</p>
+                    <p>9:00-13:00 y 15:00-19:00</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Gestoria Pujols. Tots els drets reservats. | Ctra. de la Guixa 10, Vic</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add scroll effect to navigation
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+            } else {
+                nav.style.boxShadow = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
